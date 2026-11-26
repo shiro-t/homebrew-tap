@@ -19,7 +19,7 @@ class Script < Formula
   end
 
   test do
-    system "true"
+    assert_path_exists bin/"script"
   end
 end
 
