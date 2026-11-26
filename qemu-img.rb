@@ -21,7 +21,7 @@ class QemuImg < Formula
   depends_on "python-setuptools" => :build
   depends_on "python@3.15" => :build # keep aligned with meson
 
-#  depends_on "glib"
+  depends_on "glib"
 
   uses_from_macos "flex" => :build
   uses_from_macos "bzip2"
