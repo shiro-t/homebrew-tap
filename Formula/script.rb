@@ -6,6 +6,8 @@ class Script < Formula
   sha256 "3d4b03a3c150ed733f6824042bdccbd9ce9e6cea0c676ed19a1cdb4aee3ebdf9"
   license "BSD-3-Clause"
 
+  depends_on :macos
+
   patch :DATA
 
   deny_network_access!
