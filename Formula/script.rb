@@ -6,6 +6,13 @@ class Script < Formula
   sha256 "3d4b03a3c150ed733f6824042bdccbd9ce9e6cea0c676ed19a1cdb4aee3ebdf9"
   license "BSD-3-Clause"
 
+  bottle do
+    root_url "https://ghcr.io/v2/shiro-t/tap"
+    rebuild 1
+    manifest_sha256 "62fa289a4d7034af750c286315318c0077356a9c93a95204af8ec75572136659"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe: "97dc26c3cf84fa5dc67a0adda712d9cb217cbb6a7e0ad82a8260516cafe4a2f0"
+  end
+
   depends_on :macos
 
   patch :DATA
