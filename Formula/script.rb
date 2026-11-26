@@ -1,17 +1,17 @@
 class Script < Formula
-  desc "FreeBSD script command with -w option."
-  homepage ""
+  desc "FreeBSD  command with -w option"
+  homepage "https://man.freebsd.org/cgi/man.cgi?query=script"
   url "https://raw.githubusercontent.com/freebsd/freebsd-src/8ceac8e13dccbe4e177c8f2f443b87b7d2e3edb3/usr.bin/script/script.c"
   version "15.1.0"
   sha256 "3d4b03a3c150ed733f6824042bdccbd9ce9e6cea0c676ed19a1cdb4aee3ebdf9"
   license "BSD-3-Clause"
 
-  deny_network_access!
-
   patch :DATA
 
+  deny_network_access!
+
   def install
-    system "cc", "-o", "script","script.c","-lutil"
+    system ENV.cc, "-o", "script", "script.c", "-lutil"
     bin.install %w[script]
     # man1.install Dir["*.1"]
   end

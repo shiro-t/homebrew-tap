@@ -1,5 +1,5 @@
 class QemuImg < Formula
-  desc "qemu disk image operator"
+  desc "Qemu disk image operator"
   homepage "https://www.qemu.org/"
   url "https://download.qemu.org/qemu-11.1.3.tar.xz"
   sha256 "5a8289c7940dc77d3873c81a6c29ba3afe1446fc9d36e77fa1658cdbecb84b22"
@@ -69,7 +69,7 @@ class QemuImg < Formula
       mips64 mips64el mipsel or1k ppc ppc64 riscv32 riscv64 rx
       s390x sh4 sh4eb sparc sparc64 tricore x86_64 xtensa xtensaeb
     ]
-    archs.each do |guest_arch|
+    archs.each do |_guest_arch|
       assert_match version.to_s, shell_output("#{bin}/qemu-img --version")
     end
 
@@ -78,6 +78,5 @@ class QemuImg < Formula
 
     system bin/"qemu-img", "convert", "-O", "raw", "test.qcow2", "test.img"
     assert_match "file format: raw", shell_output("#{bin}/qemu-img info test.img")
-
   end
 end

@@ -13,4 +13,8 @@ class Jerm < Formula
     bin.install %w[jerm tiocdtr]
     man1.install Dir["*.1"]
   end
+
+  test do
+    assert_path_exists bin/"jerm"
+  end
 end
