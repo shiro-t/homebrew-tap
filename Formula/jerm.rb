@@ -6,6 +6,8 @@ class Jerm < Formula
   sha256 "8a63e34a2c6a95a67110a7a39db401f7af75c5c142d86d3ba300a7b19cbcf0e9"
   license "BSD-2-Clause"
 
+  depends_on :macos
+
   deny_network_access!
 
   def install
