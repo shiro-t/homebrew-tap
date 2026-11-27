@@ -10,6 +10,13 @@ class QemuImg < Formula
     regex(/href=.*?qemu[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
+  bottle do
+    root_url "https://ghcr.io/v2/shiro-t/tap"
+    rebuild 1
+    manifest_sha256 "e86be3016f9bc451398ee290d7ad4f257659f74817b806d3362af8536d51dc77"
+    sha256 arm64_tahoe: "4ad56df6a7ec7f6344aae2800a3cc1b7ad61f0d896a7cf36df27b617d5585a92"
+  end
+
   depends_on "bison" => :build
   depends_on "libtool" => :build
   depends_on "meson" => :build
