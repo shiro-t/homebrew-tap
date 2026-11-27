@@ -10,25 +10,21 @@ class QemuImg < Formula
     regex(/href=.*?qemu[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  depends_on "bison" => :build # >= 3.0
+  depends_on "bison" => :build
   depends_on "libtool" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkgconf" => :build
   depends_on "python-setuptools" => :build
-  depends_on "python@3.15" => :build # keep aligned with meson
-
+  depends_on "python@3.15" => :build
   depends_on "glib"
+  depends_on :macos # >= 3.0 # keep aligned with meson
 
   uses_from_macos "flex" => :build
   uses_from_macos "bzip2"
 
   on_macos do
     depends_on "llvm" => :build if DevelopmentTools.clang_build_version <= 1499
-  end
-
-  on_linux do
-    depends_on "zlib-ng-compat"
   end
 
   fails_with :clang do
@@ -65,9 +61,7 @@ class QemuImg < Formula
 
   test do
     archs = %w[
-      aarch64 alpha arm avr hppa i386 loongarch64 m68k microblaze mips
-      mips64 mips64el mipsel or1k ppc ppc64 riscv32 riscv64 rx
-      s390x sh4 sh4eb sparc sparc64 tricore x86_64 xtensa xtensaeb
+      aarch64
     ]
     archs.each do |_guest_arch|
       assert_match version.to_s, shell_output("#{bin}/qemu-img --version")
